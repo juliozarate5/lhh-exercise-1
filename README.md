@@ -33,7 +33,7 @@ The following for run project in console:
 
 <img width="588" alt="Image" src="https://github.com/user-attachments/assets/ea9840fc-9eef-4a2d-b97b-eb1a2ebd56f5" />
 
-Note: You can open with a IDE; recomended IntelliJ & run Java Main class
+Note: You can open with a IDE; recomended IntelliJ then run Java Main class
 
 ## Credits
 

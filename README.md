@@ -31,7 +31,7 @@ The following for run project in console:
 
 4. Interact with the app console in the options menu.
 
-![alt text](https://github.com/[username]/[reponame]/tree/main/src/main/resources/Screenshot_1.png?raw=true)
+![alt text](https://github.com/juliozarate5/lhh-exercise-1/tree/main/src/main/resources/Screenshot_1.png?raw=true)
 
 Note: You can open with a IDE; recomended IntelliJ & run Java Main class
 

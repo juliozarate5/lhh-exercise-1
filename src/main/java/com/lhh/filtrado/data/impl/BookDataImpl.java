@@ -51,17 +51,19 @@ public class BookDataImpl implements IBookData {
     }
 
     private void saveBooksToCsv(List<BookJson> bookJsons) throws IOException {
-
         try (FileWriter writer = new FileWriter(CSV_NAME_FILE)) {
             writer.write("id,title,author_name,pages\n");
             for (BookJson book : bookJsons) {
-                writer.write(
-                        book.getId()+ "," +
-                                "\"" + book.getTitle() + "\"," +
-                                "\"" + book.getAuthor().name() + " " + (
-                                        StringUtils.isNotEmpty(book.getAuthor().firstSurname()) ? book.getAuthor().firstSurname() : "-") + "\"," +
-                                book.getPages() + "\n"
-                );
+                String authorName = book.getAuthor().name();
+                String authorSurname = StringUtils.isNotEmpty(book.getAuthor().firstSurname())
+                        ? book.getAuthor().firstSurname()
+                        : "-";
+                StringBuilder line = new StringBuilder();
+                line.append(book.getId()).append(",");
+                line.append("\"").append(book.getTitle()).append("\",");
+                line.append("\"").append(authorName).append(" ").append(authorSurname).append("\",");
+                line.append(book.getPages()).append("\n");
+                writer.write(line.toString());
             }
             System.out.println("Exported file: " + CSV_NAME_FILE);
         }

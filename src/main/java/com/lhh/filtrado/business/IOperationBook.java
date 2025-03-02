@@ -2,7 +2,6 @@ package com.lhh.filtrado.business;
 
 import com.lhh.filtrado.dto.*;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 

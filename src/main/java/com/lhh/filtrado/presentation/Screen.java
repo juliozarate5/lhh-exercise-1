@@ -53,7 +53,6 @@ public class Screen {
             }
         } while (option >= 1 && option <= 9);
 
-
         System.out.println("******************* Good Bye! *******************");
     }
 
@@ -61,21 +60,13 @@ public class Screen {
     private void showFilterBooksMoreThan400PagesTitleContainingHarry() {
         final List<Book> books = operationBook.filterBooksMoreThan400PagesTitleContainingHarry();
         showHeader("Libros con más de 400 páginas y aquellos cuyo título contenga \"Harry\". ");
-        System.out.println("---------------------------------------------------------------------------------------------");
-        books.stream().forEach(book -> {
-            showBody(book);
-        });
-        System.out.println("---------------------------------------------------------------------------------------------");
+        showBodyIterable(books);
     }
 
     private void showFilterBooksWrittenByRowling() {
         final List<Book> books = operationBook.filterBooksWrittenByRowling();
         showHeader("Libros escritos por \"J.K. Rowling\".");
-        System.out.println("---------------------------------------------------------------------------------------------");
-        books.stream().forEach(book -> {
-            showBody(book);
-        });
-        System.out.println("---------------------------------------------------------------------------------------------");
+        showBodyIterable(books);
     }
 
     private void showListBookTitlesOrderByNameAndNumbersByAuthor() {
@@ -95,11 +86,7 @@ public class Screen {
     private void showBooksWithFormatUnixToDate() {
         final List<Book> books = operationBook.booksWithFormatUnixToDate();
         showHeader("Convierte publicationTimestamp a formato AAAA-MM-DD.");
-        System.out.println("---------------------------------------------------------------------------------------------");
-        books.stream().forEach(book -> {
-            showBody(book);
-        });
-        System.out.println("---------------------------------------------------------------------------------------------");
+        showBodyIterable(books);
     }
 
     public void showPagesAverageAndFindBookMorePagesAndLeastPages(){
@@ -144,16 +131,16 @@ public class Screen {
     private void showMostRecentBooks() {
         final List<Book> books = operationBook.mostRecentBooks();
         showHeader("(Opcional) Identifica los libros más recientes.");
-        System.out.println("---------------------------------------------------------------------------------------------");
-        books.stream().forEach(book -> {
-            showBody(book);
-        });
-        System.out.println("---------------------------------------------------------------------------------------------");
+        showBodyIterable(books);
     }
 
 
     // *********************************************************************************************************************
-
+    private void showBodyIterable(final List<Book> books) {
+        System.out.println("---------------------------------------------------------------------------------------------");
+        books.stream().forEach(book -> this.showBody(book));
+        System.out.println("---------------------------------------------------------------------------------------------");
+    }
 
     private void showHeader(String headerTitle) {
         System.out.println("*** " + headerTitle + " ***");

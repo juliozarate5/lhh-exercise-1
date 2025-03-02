@@ -77,10 +77,14 @@ public class OperationBookImpl implements IOperationBook {
                         final LocalDate date = toLocalDate(unixTimestamp);
                         publicationTimestampString = date.toString();
                     }
-                    Book modifiedBook = new Book(
-                            book.id(), book.title(), publicationTimestampString, book.pages(), book.summary(), book.author()
+                    return new Book(
+                            book.id(),
+                            book.title(),
+                            publicationTimestampString,
+                            book.pages(),
+                            book.summary(),
+                            book.author()
                     );
-                    return modifiedBook;
                 })
                 .toList();
     }
@@ -115,7 +119,7 @@ public class OperationBookImpl implements IOperationBook {
                                 book.pages() * 250
                             )
                 )
-                .collect(Collectors.groupingBy(book -> book.author()));
+                .collect(Collectors.groupingBy(BookNew::author));
     }
 
     @Override

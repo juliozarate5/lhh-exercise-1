@@ -29,6 +29,7 @@ public class BookDataImpl implements IBookData {
         objectMapper = new ObjectMapper();
     }
 
+    @Override
     public List<Book> getDataFromJson() throws IOException {
         final ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         final InputStream is = classloader.getResourceAsStream(NAME_FILE);
